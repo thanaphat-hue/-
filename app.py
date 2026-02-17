@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__)
 
@@ -38,6 +39,8 @@ def index():
         to_base=to_base
     )
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+import os
 
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
